@@ -1,5 +1,7 @@
 # CodeIgniter 4 Development Container
-This is a template repository holding everything you need to host a CodeIgniter 4.1.6 development server with PHP 8.1 and MariaDB 10.4
+This is a template repository holding everything you need to host a CodeIgniter 4.1.6 development server with PHP 8.1 and MariaDB 10.4 in a development container. 
+
+The easiest way to use this is to have VSCode installed and pull the repo, then have the [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension installed. 
 
 ## CodeIgniter 4 Framework
 
