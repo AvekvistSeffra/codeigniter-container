@@ -18,13 +18,15 @@ RUN docker-php-ext-install mysqli pdo pdo_mysql intl
 ARG NODE_VERSION="none"
 RUN if [ "${NODE_VERSION}" != "none" ]; then su vscode -c "umask 0002 && . /usr/local/share/nvm/nvm.sh && nvm install ${NODE_VERSION} 2>&1"; fi
 
+RUN a2enmod rewrite
+
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
 RUN echo "DocumentRoot /workspace/public/" >> /etc/apache2/apache2.conf
 
 RUN echo "<Directory /workspace/public/>" >> /etc/apache2/apache2.conf \
     && echo "Options Indexes FollowSymLinks" >> /etc/apache2/apache2.conf \
-    && echo "AllowOverride None" >> /etc/apache2/apache2.conf \
+    && echo "AllowOverride All" >> /etc/apache2/apache2.conf \ 
     && echo "Require all granted" >> /etc/apache2/apache2.conf \
     && echo "</Directory>" >> /etc/apache2/apache2.conf
 
